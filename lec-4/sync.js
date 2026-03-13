@@ -1,0 +1,10 @@
+fs = require("fs")
+fs.writeFileSync("lec11.txt","Json")
+fs.appendFileSync("lec11.txt","\n Node")
+data = fs.readFileSync("lec11.txt","utf - 8")
+console.log(data)
+console.log("process End")
+
+fs.copyFileSync("lec11.txt","lec12.txt")
+fs.renameSync("lec11.txt","data.txt")
+fs.unlinkSync("lec12.txt")

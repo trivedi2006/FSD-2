@@ -1,0 +1,6 @@
+fs = require("fs")
+fs.writeFileSync("a.txt","01-9-2023")
+var data = fs.readFileSync("a.txt","utf-8")
+console.log(data)
+data2 = data.split("").sort((a,b)=>a-b)
+console.log(data2)
