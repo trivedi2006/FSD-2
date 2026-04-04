@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>User Details</h2>
+    <button onclick="showdb()">View birthdate</button>
+    <script>
+        var data = {
+            name:"daksh",
+            age: 22,
+            birthdate: "01/01/2000"
+
+        }
+        function showdb()
+        {
+            console.log("birthdate - ",data.birthdate)
+            document.write("birthdate - ",data.birthdate)
+        }
+    </script>
+</body>
+</html>

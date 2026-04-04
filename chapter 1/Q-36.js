@@ -1,0 +1,2 @@
+const a = {"Name" : "Ramesh", "Subects" : ["Maths", "Scence" , "chemistry"], "Grade" : {"Type" : "marks","Total" : [88,90,99,87]}, "Range" : {"opt" : "100", "type" : ["secure","subject","class"]}, "achive" : [{"Rank" :"rank", "place":[1,2,3]}, {"Ordinalindicator":"st"},"12"]};
+console.log(`${a.Name} got ${a.Grade.Total[2]} out of ${a.Range.opt+" "+a.Grade.Type+"\n"} and ${a.Range.type[0]+" "+a.achive[0].place[0]+" "+a.achive[1].Ordinalindicator+" "+a.achive.Rank}`);
