@@ -1,0 +1,19 @@
+EventEmitter = require("events")
+ee = new EventEmitter()
+
+ee.on("welcome",()=>{
+    console.log("welcome to Node.js!")
+})
+ee.on("currenttime",()=>
+{
+    console.log("Current time : ",new Date())
+})
+
+ee.on("bye",()=>
+{
+    console.log("GoodBye!")
+})
+
+ee.emit("welcome")
+ee.emit("currenttime")
+ee.emit("bye")

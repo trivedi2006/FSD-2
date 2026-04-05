@@ -1,0 +1,13 @@
+fs = require("fs")
+fs.readFile("source.txt","utf-8",(err,data)=>{
+    if(err){
+        console.log("error",err)
+    }
+    fs.writeFile("destination.txt",data,(err)=>
+    {
+        if (err){
+            console.log("error",err)
+        }
+        console.log("file copied successfully")
+    })
+})

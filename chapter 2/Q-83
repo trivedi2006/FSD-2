@@ -1,0 +1,23 @@
+EventEmitter = require("events")
+ee = new EventEmitter()
+
+ee.on("calculate",(marks)=>
+{
+    total = 0
+    marks.forEach(mark=>
+    {
+        total+=mark
+    }
+    )
+    console.log("total :",total)
+    ee.emit("percentage",total)
+
+})
+ee.on("percentage",(total)=>
+{
+    maxmarks = 5*25
+    percentage = (total)/maxmarks * 100
+    console.log("Percentage: ", percentage)
+})
+
+ee.emit("calculate",[24,12,22,23,20])

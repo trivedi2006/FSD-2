@@ -1,0 +1,13 @@
+division1 = {numbers:[12,5,9,7,6]}
+division2 = {numbers:[2,3,2,2,3]}
+df = []
+
+fs = require("fs")
+fs.writeFileSync("XYZ.txt",JSON.stringify(division1))
+fs.appendFileSync("XYZ.txt",JSON.stringify(division2))
+
+for (i in division1.numbers)
+{
+    df.push(division1.numbers[i]**division2.numbers[i])
+}
+fs.appendFileSync("XYZ.txt","\n Final result: " + df.join(", "))

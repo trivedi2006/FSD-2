@@ -1,0 +1,46 @@
+fs = require("fs")
+path = require("path")
+
+let arr = []
+for(let i = 0; i < 5; i++)
+{
+    arr.push(Math.floor(Math.random() * 100))
+}
+fs.writeFile("randomNumber.txt", arr.join(" "),(err)=>
+{
+    if(err)
+    {
+        console.log("Error writing file:", err);
+    }
+    else
+    {
+        console.log("File written successfully!");
+    }
+})
+fs.readFile("randomNumber.txt","utf-8",(err,data)=>
+{
+    if(err)    {
+        console.log("Error reading file:", err);
+    }
+    else
+    {
+        console.log("File content:\n", data);
+    }
+    number = data.split(/\s+/).map(Number)
+number.sort((a,b)=>a-b)
+fs.appendFile("randomNumber.txt",`\n sorted list: ${number.join(" ")}`,(err)=>
+{
+    if(err)    {
+        console.log("Error appending to file:", err);
+    }
+    else
+    {
+        console.log("Content appended successfully!");
+    }
+})
+})
+
+max = Math.max(...arr)
+min = Math.min(...  arr)
+console.log("Max: ", max)
+console.log("Min: ", min)

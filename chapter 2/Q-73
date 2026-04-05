@@ -1,0 +1,29 @@
+fs = require("fs")
+fs.writeFile("help.txt","You are creating File",(err)=>{
+    if(err)
+    {
+        console.log("Error writing file:", err);
+    }
+    else
+    {
+        console.log("File written successfully!");
+    }
+});
+fs.appendFile("help.txt","\n You are appending content",(err)=>{
+    if(err)
+    {
+        console.log("Error appending to file:", err);
+    }
+    else
+    {
+        console.log("Content appended successfully!");
+    }
+});
+fs.readFile("help.txt","utf-8",(err,data)=>{
+    if(err)
+    {
+        console.log("Error reading file:", err);
+    }
+    console.log("File content:\n", data);
+})
+console.log("Thanks for Using my program!")

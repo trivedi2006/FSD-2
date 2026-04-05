@@ -1,0 +1,8 @@
+ps = require("path")
+dir = ps.dirname('/user/docs/report.txt')
+basename = ps.basename('/user/docs/report.txt')
+extension = ps.extname('/user/docs/report.txt')
+
+console.log("Directory: " ,dir)
+console.log("Base Name: "  ,basename)
+console.log("Extension: " , extension)

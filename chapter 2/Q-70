@@ -1,0 +1,23 @@
+const path = require('path');
+
+// Sample path
+const filePath = '/user/docs/report.txt';
+
+console.log("Original Path:", filePath);
+
+// 1. dirname()
+console.log("Directory Name:", path.dirname(filePath));
+
+// 2. basename()
+console.log("Base Name:", path.basename(filePath));
+
+// 3. extname()
+console.log("Extension Name:", path.extname(filePath));
+
+// 4. parse()
+const parsed = path.parse(filePath);
+console.log("Parsed Object:", parsed);
+
+// 5. format()
+const formattedPath = path.format(parsed);
+console.log("Formatted Path:", formattedPath);

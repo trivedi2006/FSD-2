@@ -1,0 +1,19 @@
+EventEmitter = require("events")
+ee = new EventEmitter()
+
+ee.on("Start",()=>
+{
+    console.log("Start")
+})
+ee.on("process",()=>
+{
+    console.log("processing")
+})
+ee.on("end",()=>
+{
+    console.log("end")
+})
+
+ee.emit("Start")
+ee.emit("process")
+ee.emit("end")

@@ -1,0 +1,32 @@
+const EventEmitter = require('events');
+const emitter = new EventEmitter();
+
+// Listener 1
+function listener1() {
+    console.log("Listener 1 executed");
+}
+
+// Listener 2
+function listener2() {
+    console.log("Listener 2 executed");
+}
+
+// Add listeners to same event
+emitter.on('myEvent', listener1);
+emitter.on('myEvent', listener2);
+
+// Print number of listeners
+console.log("Total listeners:", emitter.listenerCount('myEvent'));
+
+// Call event (both listeners will run)
+emitter.emit('myEvent');
+
+// Remove one listener
+emitter.removeListener('myEvent', listener1);
+console.log("Listener 1 removed");
+
+// Print remaining listeners
+console.log("Remaining listeners:", emitter.listenerCount('myEvent'));
+
+// Call event again (only remaining listener runs)
+emitter.emit('myEvent');

@@ -1,0 +1,29 @@
+EventEmitter = require("events")
+ee = new EventEmitter()
+
+let a = -3
+let b = 5
+let c = -9
+
+ee.on("checkside",()=>
+{
+    if(a<0 || b<0 || c<0)
+    {
+        console.log("Sides must be positive.");
+    }
+    ee.emit("checkperimeter")
+   
+})
+
+ee.on("checkperimeter",()=>
+{
+    if(a>0 && b>0 && c>0)
+    {
+        let perimeter = a + b + c
+        console.log("Perimeter: ", perimeter)
+    }
+    else{
+        console.log("Cannot calculate perimeter due to invalid sides.")
+    }
+})
+ee.emit("checkside")

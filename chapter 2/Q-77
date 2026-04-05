@@ -1,0 +1,72 @@
+fs = require("fs")
+
+fs.mkdir("Hello",(err)=>{
+    if(err)
+    {   
+        console.log("Error creating directory:", err);
+    }
+    else
+    {
+        console.log("Directory created successfully!");
+    }
+})
+fs.writeFile("Hello/World.txt","Welcome to Node.js",(err)=>{
+    if(err)
+    {
+        console.log("Error writing file:", err);
+    }
+    else
+    {
+        console.log("File written successfully!");
+    }
+})
+fs.appendFile("Hello/World.txt","\n This is a new line.",(err)=>{
+    if(err)
+    {
+        console.log("Error appending to file:", err);
+    }
+    else
+    {
+        console.log("File appended successfully!");
+    }
+})
+fs.readFile("Hello/World.txt","utf-8",(err,data)=>{
+    if(err)    {
+        console.log("Error reading file:", err);
+    }
+    else
+    {
+        console.log("File read successfully!");
+        console.log("File content:", data);
+    }
+})
+fs.rename("Hello/World.txt","Hello/Greeting.txt",(err)=>{
+    if(err)
+    {   
+        console.log("Error renaming file:", err);
+    }
+    else
+    {
+        console.log("File renamed successfully!");
+    }
+})
+fs.unlink("Hello/Greeting.txt",(err)=>{
+    if(err)
+    {   
+        console.log("Error deleting file:", err);
+    }
+    else
+    {
+        console.log("File deleted successfully!");
+    }
+})
+fs.rmdir("Hello",(err)=>{
+    if(err)
+    {   
+        console.log("Error deleting directory:", err);
+    }
+    else
+    {
+        console.log("Directory deleted successfully!");
+    }
+})
