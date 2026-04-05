@@ -1,0 +1,18 @@
+url = require("url")
+http = require("http")
+
+addr = "http://localhost:8000/default.html?year=1900&month=march#warupdate"
+
+q = url.parse(addr,true)
+d = q.query
+console.log(d)
+
+const server = http.createServer((req,res)=>
+{
+    res.writeHead(200,{"Content-Type":"text/html"})
+    res.end(JSON.stringify(d))
+})
+server.listen(3001,()=>
+{
+    console.log("Server is running on port :,http://localhost:3001")
+})

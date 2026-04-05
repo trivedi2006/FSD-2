@@ -1,0 +1,36 @@
+fs = require("fs")
+http  = require("http")
+url = require("url")
+
+addr = "https://www.google.com/exam.txt?c1=Hello&c2=FSD2+T1+Test&c3=Welcome+to+LJU#AllTheBest"
+
+parsedurl = url.parse(addr,true)
+console.log(parsedurl)
+
+filename = parsedurl.pathname.split("/").pop()
+console.log("Filename: ",filename)
+
+data = parsedurl.query.c1+"!"+"\n"+parsedurl.query.c3+" "+parsedurl.query.c2+"\n"+parsedurl.hash
+console.log("Data: ",data)
+
+fs.writeFileSync(filename,data)
+
+
+fs.readFileSync(filename,"utf-8")
+const server = http.createServer((req,res)=>
+{
+    if(req.url=="/")
+    {
+        res.writeHead(200,{"Content-Type":"text/html"})
+        res.end(data)
+    }
+    else{
+        res.writeHead(404,{"Content-Type":"text/html"})
+        res.end("<h1 style='color:red'>404 Not Found</h1>")
+    }
+}
+)
+server.listen(3004,()=>
+{
+    console.log("Server is running on port :,http://localhost:3004")
+})

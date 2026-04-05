@@ -1,0 +1,8 @@
+fs = require("fs")
+url = require("url")
+addr = "https://abc.com/data.txt?m1=Congrats&m2=Node+Test&m3=Best#Done"
+
+parsedurl = url.parse(addr,true)
+filename = parsedurl.pathname.split("/").pop()
+data = parsedurl.query.m1+"!"+"\n"+parsedurl.query.m2+"\n"+parsedurl.hash
+fs.writeFileSync(filename,data)
